@@ -4,6 +4,7 @@ public class CarEx {
 
 	public static void main(String[] args) {
 		//1.객체 생성
+		//주석추가
 		Car myCar = new Car("그랜저", "검정", 250);
 		
 		
