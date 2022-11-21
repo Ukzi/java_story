@@ -7,7 +7,7 @@ public class SmartPhone extends Phone {
 
 	// 생성자:
 	public SmartPhone(String model, String color) {
-//		super(); // 부모 생성자 호출
+//		super(); // 부모 생성자 실행
 		super(model, color);
 		System.out.println("자식 생성자 호출");
 //		this.model = model; //부모 필드에 접근 가능
