@@ -60,8 +60,20 @@ public class BankApplication {
 	
 	//2. 계좌 목록
 	public static void accountList() {
+		System.out.println("-------------");
+		System.out.println("계좌목록");
+		
+		System.out.println("-------------");
 		for (int i=0; i<accountArray.length; i++) {
-			
+			Account account = accountArray[i];
+			if (account != null) {
+				System.out.println(account.getAno());
+				System.out.println(" ");
+				System.out.println(account.getOwner());
+				System.out.println(" ");
+				System.out.println(account.getBalance());
+				System.out.println();
+			}
 		}
 	}
 	
@@ -69,9 +81,21 @@ public class BankApplication {
 	public static void deposit() {
 		//계좌번호, 예금액 입력받기(scanner)
 		//계좌번호로 계좌를 찾아야 한다.
-		Account account = findAccount(ano); 호출  //hint
+		System.out.println("-------------");
+		System.out.println("예금");
+		System.out.println("-------------");
+		System.out.println("계좌번호");
+		String ano = scanner.next();
+		System.out.println("예금액");
+		int money = scanner.nextInt();
+		Account account = findAccount(ano); //호출  //hint
+		if(account == null) {
+			System.out.println("결과: 계좌가 없습니다.");
+			return;
+		}
 		//찾은계좌에 예금을 해준다.
-		account.setBalance(account.getBalance()+ 예금액 );  //hint
+		account.setBalance(account.getBalance()+ money);  //hint
+		System.out.println("결과: 예금이 성공되었습니다.");
 	}
 	
 	//4. 출금
@@ -79,7 +103,23 @@ public class BankApplication {
 		//계좌번호, 예금액 입력받기(scanner)
 		//계좌번호로 계좌를 찾아야 한다.
 		//찾은계좌에 출금을 해준다.
+		System.out.println("--------------");
+		System.out.println("출금");
+		System.out.println("--------------");
+		System.out.print("계좌번호: ");
+		String ano = scanner.next();
+		System.out.print("출금액: ");
+		int money = scanner.nextInt();
+
+		Account account = findAccount(ano);
+		if (account == null) {
+			System.out.println("결과: 계좌가 없습니다.");
+			return;
+		}
+		account.setBalance(account.getBalance() - money);
+		System.out.println("결과: 출금이 성공되었습니다.");
 	}
+
 	
 	//5. 종료
 	// accontArray 배열에서 ano와 동일한 Account 객체 찾는 역할 을 한다.
